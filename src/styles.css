@@ -1,16 +1,3 @@
-body {
-  font-family: 'Source Sans Pro', sans-serif;
-  color: #323232;
-  line-height: 20px;
-  overflow-x: hidden;
-  font-size: 14px;
-  font-weight: 400;
-  text-rendering:optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-font-smoothing: antialiased;
-  background: url('gridtile.png');
-}
-
 .node {
   position: absolute;
   width:180px;

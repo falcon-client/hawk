@@ -32,7 +32,7 @@
   },
   "peerDependencies": {
     "react": "^15.6.1",
-    "react-dom": "^15.6.1",
+    "react-dom": "^15.6.1"
   },
   "scripts": {
     "build": "babel src --out-dir lib && webpack --config webpack.config.prod.js",

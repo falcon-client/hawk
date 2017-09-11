@@ -18,17 +18,61 @@ npm install hawk-graph --save
 
 ### Usage
 ```js
+const data = {
+  nodes: [
+    {
+      nid: 1,
+      type: 'Users',
+      x: 200,
+      y: 100,
+      fields: {
+        in: [
+          { name: 'user_id' },
+          { name: 'role_id' },
+        ],
+        out: [{ name: 'out' }]
+      }
+    },
+    {
+      nid: 2,
+      type: 'Photos',
+      x: 800,
+      y: 100,
+      fields: {
+        in: [
+          { name: 'user_id' },
+          { name: 'photo' },
+        ],
+        out: [{ name: 'out' }]
+      }
+    },
+    {
+      nid: 3,
+      type: 'Role',
+      x: 400,
+      y: 500,
+      fields: {
+        in: [
+          { name: 'user_id' },
+          { name: 'role' },
+        ],
+        out: [{ name: 'out' }]
+      }
+    }
+  ],
+  connections: [
+    { from_node: 1, from: 'out', to_node: 2, to: 'user_id' },
+    { from_node: 2, from: 'out', to_node: 3, to: 'user_id' },
+  ]
+};
+
 <Hawk
-  data={this.state}
-  onNodeMove={(nid, pos) => this.onNodeMove(nid, pos)}
-  onNodeStartMove={nid => this.onNodeStartMove(nid)}
-  onNewConnector={(n1, o, n2, i) => this.onNewConnector(n1, o, n2, i)}
-  onRemoveConnector={connector => this.onRemoveConnector(connector)}
-  onNodeSelect={nid => {
-    this.handleNodeSelect(nid);
-  }}
-  onNodeDeselect={nid => {
-    this.handleNodeDeselect(nid);
-  }}
+  data={data}
+  onNodeMove={(nodeId, pos) => {}}
+  onNodeStartMove={nodeId => {}}
+  onNewConnector={(node1, o, node2, index) => {}}
+  onRemoveConnector={connector => {}}
+  onNodeSelect={nodeId => {}}
+  onNodeDeselect={nodeId => {}}
 />
 ```

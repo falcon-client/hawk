@@ -36,7 +36,7 @@
     "react-dom": "^15.6.1"
   },
   "scripts": {
-    "build": "npm run build:commonjs && npm run build:es",
+    "build": "npm run build:commonjs && npm run build:es && cp src/styles.css lib/styles.css",
     "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build-example": "webpack --config webpack.config.js",

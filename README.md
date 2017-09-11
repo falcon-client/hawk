@@ -18,6 +18,10 @@ npm install hawk-graph --save
 
 ### Usage
 ```js
+import React from 'react';
+import Hawk from 'hawk-graph';
+import 'hawk-graph/lib/styles.css';
+
 const data = {
   nodes: [
     {
@@ -66,13 +70,17 @@ const data = {
   ]
 };
 
-<Hawk
-  data={data}
-  onNodeMove={(nodeId, pos) => {}}
-  onNodeStartMove={nodeId => {}}
-  onNewConnector={(node1, o, node2, index) => {}}
-  onRemoveConnector={connector => {}}
-  onNodeSelect={nodeId => {}}
-  onNodeDeselect={nodeId => {}}
-/>
+function Graph() {
+  return (
+    <Hawk
+      data={data}
+      onNodeMove={(nodeId, pos) => {}}
+      onNodeStartMove={nodeId => {}}
+      onNewConnector={(node1, o, node2, index) => {}}
+      onRemoveConnector={connector => {}}
+      onNodeSelect={nodeId => {}}
+      onNodeDeselect={nodeId => {}}
+    />
+  );
+}
 ```

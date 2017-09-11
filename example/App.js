@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Hawk from '../src/';
 // For your app, import Hawk like so
-// import Hawk from 'react-node-graph';
+// import Hawk from 'hawk-graph';
 
 export default class App extends Component {
   state = {

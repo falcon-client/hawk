@@ -1,13 +1,18 @@
-import React, { Component } from 'react';
+import React, {PropTypes} from 'react';
 import onClickOutside from 'react-onclickoutside';
-import Draggable from 'react-draggable';
+
+var Draggable = require('react-draggable');
+
 import NodeInputList from './NodeInputList';
 import NodeOuputList from './NodeOutputList';
 
-class Node extends Component {
-  state = {
-    selected: false
-  };
+class Node extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      selected: false
+    }
+  }
 
   handleDragStart(event, ui) {
     this.props.onNodeStart(this.props.nid, ui);
@@ -18,6 +23,7 @@ class Node extends Component {
   }
 
   handleDrag(event, ui) {
+    console.log(event, ui)
     this.props.onNodeMove(this.props.index, ui.position);
   }
 
@@ -34,60 +40,46 @@ class Node extends Component {
   }
 
   handleClick(e) {
-    this.setState({ selected: true });
+    this.setState({selected: true});
     if (this.props.onNodeSelect) {
       this.props.onNodeSelect(this.props.nid);
     }
   }
 
   handleClickOutside() {
-    const { selected } = this.state;
+    let {selected} = this.state;
     if (this.props.onNodeDeselect && selected) {
       this.props.onNodeDeselect(this.props.nid);
     }
-    this.setState({ selected: false });
+    this.setState({selected: false});
   }
 
-  render() {
-    const { selected } = this.state;
+	render() {
+    let {selected} = this.state;
 
-    const nodeClass = `node${selected ? ' selected' : ''}`;
+    let nodeClass = 'node' + (selected ? ' selected' : '');
 
-    return (
-      <div
-        onDoubleClick={e => {
-          this.handleClick(e);
-        }}
-      >
+		return (
+		  <div onDoubleClick={(e) => {this.handleClick(e)}}>
         <Draggable
-          start={{ x: this.props.pos.x, y: this.props.pos.y }}
+          start={{x:this.props.pos.x,y:this.props.pos.y}}
           handle=".node-header"
-          onStart={(event, ui) => this.handleDragStart(event, ui)}
-          onStop={(event, ui) => this.handleDragStop(event, ui)}
-          onDrag={(event, ui) => this.handleDrag(event, ui)}
-        >
-          <section className={nodeClass} style={{ zIndex: 10000 }}>
-            <header
-              className="node-header"
-              style={{ backgroundColor: this.props.color }}
-            >
+          onStart={(event, ui)=>this.handleDragStart(event, ui)}
+          onStop={(event, ui)=>this.handleDragStop(event, ui)}
+          onDrag={(event, ui)=>this.handleDrag(event, ui)}>
+        <section className={nodeClass} style={{zIndex:10000}}>
+            <header className="node-header" style={{backgroundColor:this.props.color}}>
               <span className="node-title">{this.props.title}</span>
             </header>
             <div className="node-content">
-              <NodeInputList
-                items={this.props.inputs}
-                onCompleteConnector={index => this.onCompleteConnector(index)}
-              />
-              <NodeOuputList
-                items={this.props.outputs}
-                onStartConnector={index => this.onStartConnector(index)}
-              />
+              <NodeInputList items={this.props.inputs} onCompleteConnector={(index)=>this.onCompleteConnector(index)} />
+              <NodeOuputList items={this.props.outputs} onStartConnector={(index)=>this.onStartConnector(index)} />
             </div>
-          </section>
+        </section>
         </Draggable>
       </div>
     );
-  }
+	}
 }
 
 export default onClickOutside(Node);

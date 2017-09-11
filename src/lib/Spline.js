@@ -6,13 +6,13 @@ import TrashIcon from './TrashIcon';
 class Spline extends Component {
   state = {
     selected: false,
-    position: { x: 0, y: 0 },
+    position: { x: 0, y: 0 }
   };
 
   handleClick(e) {
     this.setState({
       selected: !this.state.selected,
-      position: this.props.mousePos,
+      position: this.props.mousePos
     });
 
     if (this.props.onClick) {
@@ -51,7 +51,7 @@ class Spline extends Component {
       end.x - dist * 0.75, // cp2 x
       end.y, // cp2 y
       end.x, // end x
-      end.y,
+      end.y
     ); // end y
 
     const className = `connector${selected ? ' selected' : ''}`;
@@ -63,21 +63,21 @@ class Spline extends Component {
         <path
           className="connector-click-area"
           d={pathString}
-          onClick={(e) => {
+          onClick={e => {
             this.handleClick(e);
           }}
         />
         <path
           className={className}
           d={pathString}
-          onClick={(e) => {
+          onClick={e => {
             this.handleClick(e);
           }}
         />
         {selected ? (
           <TrashIcon
             position={position}
-            onClick={(e) => {
+            onClick={e => {
               this.handleRemove(e);
             }}
           />
@@ -92,7 +92,7 @@ class Spline extends Component {
 
   distance(a, b) {
     return Math.sqrt(
-      (b[0] - a[0]) * (b[0] - a[0]) + (b[1] - a[1]) * (b[1] - a[1]),
+      (b[0] - a[0]) * (b[0] - a[0]) + (b[1] - a[1]) * (b[1] - a[1])
     );
   }
 }

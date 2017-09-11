@@ -17,7 +17,7 @@ export default class TrashIcon extends Component {
         stroke="none"
         strokeWidth="1"
         transform={`translate(${position.x - 6},${position.y + 15})`}
-        onClick={(e) => {
+        onClick={e => {
           this.handleClick(e);
         }}
       >

@@ -12,7 +12,7 @@ export default class index extends Component {
     this.state = {
       data: this.props.data,
       source: [],
-      dragging: false,
+      dragging: false
     };
 
     this.onMouseMove = this.onMouseMove.bind(this);
@@ -49,8 +49,8 @@ export default class index extends Component {
     this.setState({
       mousePos: {
         x: e.pageX - svgRect.left,
-        y: e.pageY - svgRect.top,
-      },
+        y: e.pageY - svgRect.top
+      }
     });
   }
 
@@ -87,7 +87,7 @@ export default class index extends Component {
         fromNode.nid,
         fromPinName,
         toNode.nid,
-        toPinName,
+        toPinName
       );
     }
     this.setState({ dragging: false });
@@ -146,11 +146,11 @@ export default class index extends Component {
       const connectorStart = computeOutOffsetByIndex(
         sourceNode.x,
         sourceNode.y,
-        this.state.source[1],
+        this.state.source[1]
       );
       const connectorEnd = {
         x: this.state.mousePos.x,
-        y: this.state.mousePos.y,
+        y: this.state.mousePos.y
       };
 
       newConnector = <Spline start={connectorStart} end={connectorEnd} />;
@@ -177,10 +177,10 @@ export default class index extends Component {
               this.handleStartConnector(nid, outputIndex)}
             onCompleteConnector={(nid, inputIndex) =>
               this.handleCompleteConnector(nid, inputIndex)}
-            onNodeSelect={(nid) => {
+            onNodeSelect={nid => {
               this.handleNodeSelect(nid);
             }}
-            onNodeDeselect={(nid) => {
+            onNodeDeselect={nid => {
               this.handleNodeDeselect(nid);
             }}
           />
@@ -189,19 +189,19 @@ export default class index extends Component {
         {/* render our connectors */}
 
         <SVGComponent height="100%" width="100%" ref="svgComponent">
-          {connectors.map((connector) => {
+          {connectors.map(connector => {
             const fromNode = this.getNodebyId(nodes, connector.from_node);
             const toNode = this.getNodebyId(nodes, connector.to_node);
 
             const splinestart = computeOutOffsetByIndex(
               fromNode.x,
               fromNode.y,
-              this.computePinIndexfromLabel(fromNode.fields.out, connector.from),
+              this.computePinIndexfromLabel(fromNode.fields.out, connector.from)
             );
             const splineend = computeInOffsetByIndex(
               toNode.x,
               toNode.y,
-              this.computePinIndexfromLabel(toNode.fields.in, connector.to),
+              this.computePinIndexfromLabel(toNode.fields.in, connector.to)
             );
 
             return (

@@ -7,7 +7,7 @@ import NodeOuputList from './NodeOutputList';
 
 class Node extends Component {
   state = {
-    selected: false,
+    selected: false
   };
 
   handleDragStart(event, ui) {
@@ -56,7 +56,7 @@ class Node extends Component {
 
     return (
       <div
-        onDoubleClick={(e) => {
+        onDoubleClick={e => {
           this.handleClick(e);
         }}
       >

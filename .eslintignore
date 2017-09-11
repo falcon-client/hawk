@@ -38,7 +38,8 @@ flow-typed/npm/*
 # App packaged
 release
 build
-#lib
+lib/lib
+lib/index.js
 example
 
 .idea

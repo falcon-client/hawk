@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import onClickOutside from 'react-onclickoutside';
 import Draggable from 'react-draggable';
-
 import NodeInputList from './NodeInputList';
 import NodeOuputList from './NodeOutputList';
 

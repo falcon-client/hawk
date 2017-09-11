@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "description": "A graph library",
   "main": "lib/index.js",
-  "module": "src/index.js",
+  "module": "es/index.js",
   "devDependencies": {
     "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
@@ -13,6 +13,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-react-optimize": "^1.0.1",
     "babel-preset-stage-0": "^6.24.1",
+    "cross-env": "^5.0.5",
     "eslint": "^4.6.1",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-config-bliss": "^1.0.12",
@@ -35,7 +36,9 @@
     "react-dom": "^15.6.1"
   },
   "scripts": {
-    "build": "babel src --out-dir lib && webpack --config webpack.config.prod.js",
+    "build": "cross-env BABEL_ENV=commonjs npm run build:commonjs",
+    "build:commonjs": "cross-env BABEL_ENV=es babel src --out-dir lib",
+    "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build-example": "webpack --config webpack.config.js",
     "dev": "webpack-dev-server --progress --display-errors-details --inline --hot --content-base --port 9999",
     "lint": "eslint --cache --format=node_modules/eslint-formatter-pretty .",
@@ -47,15 +50,17 @@
     "url": "https://github.com/falcon-client/hawk.git"
   },
   "keywords": [
+    "hawk",
     "react",
     "component",
     "react-component",
+    "d3",
     "node",
     "graph",
     "ui"
   ],
   "files": [
-    "src",
+    "es",
     "lib"
   ],
   "author": "Amila Welihinda",

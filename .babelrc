@@ -1,16 +1,27 @@
 {
   "presets": [
-    ["env", {
-      "targets": { "node": 8 },
-      "useBuiltIns": true
-    }],
-    "stage-0",
-    "react"
+    "react",
+    "react-optimize",
+    "stage-0"
   ],
+  "plugins": ["dev-expression"],
   "env": {
-    "production": {
-      "presets": ["react-optimize"],
-      "plugins": ["dev-expression"]
+    "es": {
+      "presets": [
+        ["env", {
+          "targets": { "node": 8 },
+          "useBuiltIns": true,
+          "modules": false
+        }]
+      ]
+    },
+    "commonjs": {
+      "presets": [
+        ["env", {
+          "targets": { "node": 4 },
+          "useBuiltIns": true
+        }]
+      ]
     }
   }
 }

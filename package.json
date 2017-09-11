@@ -1,0 +1,53 @@
+{
+  "name": "hawk-graph",
+  "version": "0.0.1",
+  "description": "A graph library",
+  "main": "lib/index.js",
+  "peerDependencies": {
+    "react": ">=0.15.0",
+    "react-dom": ">=0.15.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^7.2.3",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.6.0",
+    "babel-preset-react": "^6.24.1",
+    "babel-preset-react-optimize": "^1.0.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "eslint": "^4.6.1",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-config-bliss": "^1.0.12",
+    "eslint-formatter-pretty": "^1.3.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.3.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.5.6",
+    "webpack-dev-server": "^2.7.1"
+  },
+  "dependencies": {
+    "react-draggable": "^3.0.3",
+    "react-onclickoutside": "^6.5.0"
+  },
+  "scripts": {
+    "build": "babel src --out-dir lib && webpack --config webpack.config.prod.js -p",
+    "build-example": "webpack --config webpack.config.js -p",
+    "dev": "webpack-dev-server --progress --display-errors-details --inline --hot --content-base --port 9999",
+    "lint": "eslint --cache --format=node_modules/eslint-formatter-pretty ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/falcon-client/hawk.git"
+  },
+  "keywords": [
+    "react",
+    "component",
+    "react-component",
+    "node",
+    "graph",
+    "ui"
+  ],
+  "author": "Amila Welihinda",
+  "license": "MIT"
+}

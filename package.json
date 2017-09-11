@@ -35,7 +35,8 @@
     "build-example": "webpack --config webpack.config.js",
     "dev": "webpack-dev-server --progress --display-errors-details --inline --hot --content-base --port 9999",
     "lint": "eslint --cache --format=node_modules/eslint-formatter-pretty .",
-    "prettier": "prettier --single-quote --write \"./src/lib/*.js\" && prettier --single-quote --write \"./src/*.js\" && prettier --single-quote --write \"./example/{App,index}.js\""
+    "prettier": "prettier --single-quote --write \"./src/lib/*.js\" && prettier --single-quote --write \"./src/*.js\" && prettier --single-quote --write \"./example/{App,index}.js\"",
+    "test": "npm run lint"
   },
   "repository": {
     "type": "git",

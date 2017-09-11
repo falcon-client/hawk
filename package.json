@@ -1,6 +1,6 @@
 {
   "name": "hawk-graph",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "A graph library",
   "main": "lib/index.js",
   "module": "es/index.js",

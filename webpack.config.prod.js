@@ -11,7 +11,7 @@ module.exports = {
     path: path.join(__dirname, 'build'),
     publicPath: 'build/',
     filename: 'index.js',
-    library: 'ReactNodeGraph',
+    library: 'Hawk',
     libraryTarget: 'umd',
   },
   module: {

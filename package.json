@@ -36,12 +36,13 @@
     "react-dom": "^15.6.1"
   },
   "scripts": {
-    "build": "cross-env BABEL_ENV=commonjs npm run build:commonjs",
-    "build:commonjs": "cross-env BABEL_ENV=es babel src --out-dir lib",
+    "build": "npm run build:commonjs && npm run build:es",
+    "build:commonjs": "cross-env BABEL_ENV=commonjs babel src --out-dir lib",
     "build:es": "cross-env BABEL_ENV=es babel src --out-dir es",
     "build-example": "webpack --config webpack.config.js",
     "dev": "webpack-dev-server --progress --display-errors-details --inline --hot --content-base --port 9999",
     "lint": "eslint --cache --format=node_modules/eslint-formatter-pretty .",
+    "prepublish": "npm run build && npm run build:es",
     "prettier": "prettier --single-quote --write \"./src/lib/*.js\" && prettier --single-quote --write \"./src/*.js\" && prettier --single-quote --write \"./example/{App,index}.js\"",
     "test": "npm run lint"
   },
